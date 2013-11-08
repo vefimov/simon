@@ -43,6 +43,13 @@ class Simon
     @addSource """casper.on('#{eventName}', function(){ 
       this.echo("simon:event:#{eventName}:" + JSON.stringify([].slice.call(arguments)));
     });"""
+  
+  # Calls casper's method
+  casperCall: (methodName, args) ->
+    for value, i in args
+      args[i] = "'#{value}'" if typeof value is "string"
+
+    source = "casper.#{methodName}(#{args})"
 
   # Configures and starts Casper, then open the provided url and optionally 
   # adds the step provided by the then argument:

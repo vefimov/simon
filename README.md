@@ -6,7 +6,7 @@ The best project ever.
 Install the module with: `npm install simon`
 
 ```javascript
-var simon = require('simon');
+var simon = require('simonjs');
 simon.awesome(); // "awesome"
 ```
 
